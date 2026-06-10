@@ -5,22 +5,13 @@ MVP-0 的第一个可跑切片。规格见 [`../docs/mvp-0-spec.md`](../docs/mvp
 **它做的唯一一件事:** 你跟 Claw 聊天 → 点「生成枝桠」→ 看你说的话被转写成一根枝桠。
 **它要验证的唯一假设(闸门 A):** 看着这些枝桠,你想不想继续说下去。
 
-## 跑起来
+## 跑起来(一条命令)
 
 ```bash
-# 1. 在仓库根目录,装依赖(建议用 venv)
-python3 -m venv .venv && source .venv/bin/activate
-pip install -r requirements.txt
-
-# 2. 给 key
-export ANTHROPIC_API_KEY=sk-ant-...      # 见 .env.example
-
-# 3. 启动
-uvicorn app.main:app --reload
-
-# 4. 打开浏览器
-open http://127.0.0.1:8000
+python3 run.py
 ```
+
+就这一条。它自动建环境、装依赖、第一次会问你要 Anthropic API key(存进 `.env`,以后不再问),然后自动打开浏览器。关掉:终端里按 Ctrl+C。
 
 聊几轮 → 点右边「🌱 把刚才聊的长成一根枝桠」→ 长够 3 根就毕业。
 「重新开始」清空 `data.json` 从头来(调 prompt 时常用)。
